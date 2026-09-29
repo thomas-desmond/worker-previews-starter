@@ -1,4 +1,6 @@
-export function renderHtml() {
+import { environmentBadgeCss, renderEnvironmentBadge } from "./environmentBadge";
+
+export function renderHtml(environment: string | undefined) {
 	return `
     <!DOCTYPE html>
     <html lang="en">
@@ -17,6 +19,7 @@ export function renderHtml() {
           .entry-empty { opacity: 0.6; font-style: italic; }
           .entry-error { display: none; margin: 1rem 0; padding: 0.75rem; border: 1px solid #dc2626; border-radius: 0.35rem; color: #991b1b; background: #fef2f2; }
           .entry-error[data-visible="true"] { display: block; }
+          ${environmentBadgeCss}
         </style>
       </head>
 
@@ -25,6 +28,7 @@ export function renderHtml() {
           <img
             src="https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/30e0d3f6-6076-40f8-7abb-8a7676f83c00/public"
           />
+          ${renderEnvironmentBadge(environment)}
           <h1>📋 Activity Log</h1>
           <p>Worker + D1 — add and delete entries, backed by a real database.</p>
         </header>
@@ -39,7 +43,7 @@ export function renderHtml() {
           <ul id="entry-list" style="list-style: none; padding: 0; margin: 0;"></ul>
 
           <small class="blue" style="display: block; margin-top: 1.5rem;">
-            <a target="_blank" href="https://developers.cloudflare.com/d1/tutorials/build-a-comments-api/">Build a comments API with Workers and D1</a>
+            <a target="_blank" href="https://developers.cloudflare.com/workers/previews/">Learn about Worker Previews</a>
           </small>
         </main>
 

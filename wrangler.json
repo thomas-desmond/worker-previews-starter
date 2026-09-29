@@ -3,6 +3,10 @@
 	"main": "src/index.ts",
 	"name": "worker-previews-starter",
 	"upload_source_maps": true,
+	// Production settings live at the top level.
+	"vars": {
+		"ENVIRONMENT": "production"
+	},
 	"d1_databases": [
 		{
 			"binding": "DB",
@@ -12,5 +16,13 @@
 	],
 	"observability": {
 		"enabled": true
+	},
+	// Preview settings live here. Previews don't inherit production vars or
+	// bindings, so there's no D1 database here yet: adding one is part of the
+	// workshop.
+	"previews": {
+		"vars": {
+			"ENVIRONMENT": "preview"
+		}
 	}
 }

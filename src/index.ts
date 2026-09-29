@@ -32,6 +32,9 @@ export default {
 	async fetch(request, env) {
 		const url = new URL(request.url);
 		const { pathname } = url;
+		// "production" or "preview", from wrangler.json. Typed loosely because
+		// generated types only see the top-level value.
+		const environment = (env as { ENVIRONMENT?: string }).ENVIRONMENT;
 
 		// A Preview only gets a `DB` binding if `wrangler.json` has a
 		// `previews.d1_databases` override for it — Cloudflare does not fall
@@ -48,7 +51,7 @@ export default {
 			}
 			// 200, not an error status: this is an expected, legitimate app
 			// state (no override configured yet), not a crash.
-			return new Response(renderNoDatabaseHtml("missing-binding"), {
+			return new Response(renderNoDatabaseHtml("missing-binding", environment), {
 				headers: { "content-type": "text/html" },
 			});
 		}
@@ -60,7 +63,7 @@ export default {
 					{ status: 409 },
 				);
 			}
-			return new Response(renderNoDatabaseHtml("missing-schema"), {
+			return new Response(renderNoDatabaseHtml("missing-schema", environment), {
 				headers: { "content-type": "text/html" },
 			});
 		}
@@ -103,7 +106,7 @@ export default {
 		}
 
 		if (pathname === "/" && request.method === "GET") {
-			return new Response(renderHtml(), {
+			return new Response(renderHtml(environment), {
 				headers: { "content-type": "text/html" },
 			});
 		}

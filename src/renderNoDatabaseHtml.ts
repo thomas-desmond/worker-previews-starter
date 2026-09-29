@@ -1,6 +1,8 @@
+import { environmentBadgeCss, renderEnvironmentBadge } from "./environmentBadge";
+
 type DatabaseSetupState = "missing-binding" | "missing-schema";
 
-export function renderNoDatabaseHtml(state: DatabaseSetupState) {
+export function renderNoDatabaseHtml(state: DatabaseSetupState, environment: string | undefined) {
 	const missingBinding = state === "missing-binding";
 	const title = missingBinding ? "No Preview database bound" : "Preview database needs a schema";
 	const message = missingBinding
@@ -22,6 +24,7 @@ export function renderNoDatabaseHtml(state: DatabaseSetupState) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Activity Log — ${title}</title>
         <link rel="stylesheet" type="text/css" href="https://static.integrations.cloudflare.com/styles.css">
+        <style>${environmentBadgeCss}</style>
       </head>
 
       <body>
@@ -29,6 +32,7 @@ export function renderNoDatabaseHtml(state: DatabaseSetupState) {
           <img
             src="https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/30e0d3f6-6076-40f8-7abb-8a7676f83c00/public"
           />
+          ${renderEnvironmentBadge(environment)}
           <h1>Activity Log</h1>
           <p>${message}</p>
         </header>
