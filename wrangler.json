@@ -1,23 +1,16 @@
 {
 	"compatibility_date": "2025-10-08",
 	"main": "src/index.ts",
-	"name": "d1-template-preview",
+	"name": "worker-previews-starter",
 	"upload_source_maps": true,
 	"d1_databases": [
 		{
 			"binding": "DB",
 			"database_id": "6f6bd5c9-156c-4089-8f6a-6e26a47b3d57",
-			"database_name": "d1-template-database"
+			"database_name": "activity-log-db"
 		}
 	],
 	"observability": {
 		"enabled": true
 	}
-	// No `previews` override block here on purpose: adding it is the
-	// workshop's hands-on exercise (new branch, new D1 database, add the
-	// override, push, open a PR). See the workshop guide for the exact
-	// steps. Earlier CI validation work briefly checked one in here to
-	// prove the mechanics end to end (github.com/thomas-desmond/
-	// d1-template-preview PR #1) — removed now that this repo is the
-	// actual starting template attendees deploy via the button.
 }
