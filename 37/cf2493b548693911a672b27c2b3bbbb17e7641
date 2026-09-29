@@ -1,0 +1,27 @@
+src/index.ts
+  s_ae6403be27ae41::t_53f0d4616a9d87 35-37,54,66,109
+src/renderHtml.ts
+  s_ae6403be27ae41::t_c511b0b90930b1 1-3,22,31,46
+src/renderNoDatabaseHtml.ts
+  s_ae6403be27ae41::t_ce9f2a9b9c6fb7 1-2,5,27,35
+worker-configuration.d.ts
+  s_ae6403be27ae41::t_4810fd52b11889 2-3,6,448,1429,3419,3428,3431,3471-3474,3530,3621,3628-3645,3648-3652,5165-5169,5171,5192,9208-9232,9236-9260,10229-10238,10246-10261,10264-10304,10306,10309-10613,10706-10715,10778-10789,10793,10937-10959,11418-11426,11461,11497,11532,11546,11557-11558,11733-11888,12053-12072,12112-12119,13401-13472,13895,13902-13920,14199,15249-15254,15266-15276,15284,15330,15365,15834,15873-16012,16049-16052
+wrangler.json
+  s_ae6403be27ae41::t_b8382eaed7086c 6-9,19-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "37cf2493b548693911a672b27c2b3bbbb17e7641",
+  "prompts": {},
+  "sessions": {
+    "s_ae6403be27ae41": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f162a3301ffe7Ge1KW5gof13Hs",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Thomas Desmond <24610108+thomas-desmond@users.noreply.github.com>"
+    }
+  }
+}
