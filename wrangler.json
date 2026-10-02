@@ -18,8 +18,7 @@
 		"enabled": true
 	},
 	// Preview settings live here. Previews don't inherit production vars or
-	// bindings, so there's no D1 database here yet: adding one is part of the
-	// workshop.
+	// bindings: add Preview-only bindings (like the Preview D1 database) here.
 	"previews": {
 		"vars": {
 			"ENVIRONMENT": "preview"
