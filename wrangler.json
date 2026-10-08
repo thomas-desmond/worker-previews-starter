@@ -19,6 +19,8 @@
 	},
 	// Preview settings live here. Previews don't inherit production vars or
 	// bindings: add Preview-only bindings (like the Preview D1 database) here.
+	// A Preview D1 database's migrations are applied through
+	// wrangler.preview-migrations.jsonc, which must point at the same database.
 	"previews": {
 		"vars": {
 			"ENVIRONMENT": "preview"
