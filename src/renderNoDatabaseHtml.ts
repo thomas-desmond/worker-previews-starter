@@ -12,9 +12,9 @@ export function renderNoDatabaseHtml(state: DatabaseSetupState, environment: str
 		? `Add a <code>previews.d1_databases</code> override in
 				<code>wrangler.json</code> pointing at a Preview-safe D1 database,
 				then push the branch again.`
-		: `Apply <code>workshop/preview-schema.sql</code> to the Preview database
-				by its database name, then refresh this page. Production will not be
-				touched.`;
+		: `Apply <code>preview-migrations/</code> to the Preview database with
+				<code>wrangler.preview-migrations.jsonc</code>, then refresh this page.
+				Production will not be touched.`;
 
 	return `
     <!DOCTYPE html>
