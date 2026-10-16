@@ -18,6 +18,8 @@ Workers Builds builds every push to a PR branch and comments on the PR with the 
 2. Read the bot comment: `gh pr view --comments`. The Preview URL looks like `https://<branch>-<worker-name>.<subdomain>.workers.dev`.
 3. The comment's deployment table lists the commit for each deployment. If your latest commit isn't in it yet, the Preview is still serving the old code.
 
+**Don't mix up the two URLs.** The Preview URL starts with the branch name. A deployment URL looks like `https://<deployment-id>-<worker-name>.<subdomain>.workers.dev`: it starts with a deployment ID and is pinned to one push. Test against the Preview URL, and whenever you give the human "the Preview URL", give the one that starts with the branch name, never a deployment URL.
+
 ## Changing the Preview database's schema
 
 The Preview D1 database is shared by every Preview of this Worker. Its migrations live in `preview-migrations/` and are applied with a separate config file, `wrangler.preview-migrations.jsonc`. That file declares the Preview database under the binding `PREVIEW_DB`, so the command can't reach production's `DB`.
@@ -61,4 +63,4 @@ If the MCP tools aren't available, say so and ask the human to open the Worker i
 
 1. Push, then wait for the new deployment to show your commit.
 2. Re-run the full API check against the Preview URL.
-3. Give the human the Preview URL, the results, and what you changed, then let them decide whether to merge.
+3. Give the human the Preview URL (the one that starts with the branch name), the results, and what you changed, then let them decide whether to merge.
